@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flashcards</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .flashcard {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 10px 0;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .flashcard:hover {
+            transform: scale(1.05);
+        }
+        .answer {
+            display: none;
+            margin-top: 10px;
+        }
+        .button {
+            display: block;
+            width: 200px;
+            padding: 10x;
+            margin: 20px;
+            text-align: center;
+            background-color: #006bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Flashcards</h1>
+    <div id="flashcard-container">
+        {% if flashcards %}
+            {% for card in flashcards %}
+                <div class="flashcard" onclick="toggleAnswer(this)">
+                    <div class="question">{{ card.question }}</div>
+                    <div class="answer">{{ card.answer }}</div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No flashcards available.</p>
+        {% endif %}
+    </div>
+
+    <a href="{{ url_for('cancer_menu') }}" class="button">Back to Cancer Menu</a>
+
+    <script>
+        function toggleAnswer(card) {
+            const answer = card.querySelector('.answer');
+            answer.style.display = answer.style.display === 'none' || answer.style.display === '' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>

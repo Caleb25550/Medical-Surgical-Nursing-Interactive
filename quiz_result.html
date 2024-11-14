@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .result {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+        .button {
+            display: block;
+            width: 200px;
+            padding: 10px;
+            margin: 20px auto;
+            text-align: center;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz Results</h1>
+    <div class="result">
+        <p>You scored {{ score }} out of {{ total }}!</p>
+        <button class="button" onclick="window.location.href='{{ url_for('cancer_menu') }}'">Go Back to Cancer Menu</button>
+    </div>
+</body>
+</html>

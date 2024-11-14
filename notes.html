@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        #notesContainer {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 20px;
+            min-height: 100px; /* Minimum height for the notes area */
+            background-color: white;
+        }
+        #noteInput {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .note {
+            margin: 5px 0; /* Space between notes */
+        }
+    </style>
+</head>
+<body>
+    <h1>Notes</h1>
+    <div id="notesContainer"></div>
+    <input type="text" id="noteInput" placeholder="Type a note and press Enter...">
+    
+    <script>
+        document.getElementById('noteInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                const noteText = this.value.trim(); // Get the trimmed value of the input
+                if (noteText) { // Only add if there's text
+                    const noteDiv = document.createElement('div');
+                    noteDiv.className = 'note';
+                    noteDiv.textContent = noteText; // Set the text for the note
+                    document.getElementById('notesContainer').appendChild(noteDiv); // Add the note to the container
+                    this.value = ''; // Clear the input after adding the note
+                }
+                e.preventDefault(); // Prevent form submission
+            }
+        });
+    </script>
+</body>
+</html>

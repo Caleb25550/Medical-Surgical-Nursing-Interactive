@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Menu</title>
+</head>
+<body>
+    <h1>Welcome to the Med Surg 3 Interactive!</h1>
+    <p></p>
+    
+    <form method="POST">
+        <h2>Main Menu</h2>
+        <button name="menu_choice" value="1">Cancer</button>
+        <button name="menu_choice" value="3">Information</button>
+        <button name="menu_choice" value="2">Credits</button>
+        <button name="menu_choice" value="0">Send Feedback</button> <!-- Changed to '0' for clarity -->
+    </form>
+
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
